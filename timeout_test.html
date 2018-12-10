@@ -1,0 +1,193 @@
+<!-- <html>
+<head>
+<script type="text/javascript">
+function timedMsg()
+{
+    alert('5 seconds!');
+var t=setTimeout("timedMsg()",5000);
+
+}
+</script>
+</head>
+
+<body>
+<form>
+<input type="button" value="Display timed alertbox!"
+onClick="timedMsg()">
+</form>
+<p>Click on the button above. An alert box will be
+displayed after 5 seconds.</p>
+</body>
+
+</html> -->
+
+<!-- <html>
+<body>
+
+<input type="text" id="clock" size="35" />
+<script language=javascript>
+var int=self.setInterval("clock()",50)
+function clock()
+  {
+  var t=new Date()
+  document.getElementById("clock").value=t
+  }
+</script>
+</form>
+<button onclick="int=window.clearInterval(int)">
+Stop interval</button>
+<BUTTON onclick="window.close()">点击此处关闭窗口</BUTTON>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+        <button id="fade-btn">淡出</button>
+
+        <script>
+            //setTimeout版本
+            // var fadeObj=document.getElementById("fade-obj");
+            // var fadeBtn=document.getElementById("fade-btn");
+            // var i=1;
+            // function fadeOut(){
+            //     fadeObj.style.opacity=i;
+            //     i-=0.1;
+            //     fadeBtn.disable=true;
+            //     if(i>0){    
+            //         // setTimeout("fadeOut()",100); 
+            //         setTimeout(fadeOut,100); 
+            //         console.log(i);                   
+            //     }
+
+            //     else if(i<=0){
+            //         fadeBtn.innerHTML="淡入";
+            //         fadeBtn.disable = false;
+            //         fadeBtn.addEventListener("click",fadeIn);    
+            //     }
+                
+            // }
+
+            // function fadeIn(){
+            //     fadeObj.style.opacity=i;
+            //     i+=0.1;
+            //     fadeBtn.disable=true;
+            //     if(i<=1){
+            //         setTimeout(fadeIn,100); 
+            //         console.log(i);
+            //     }
+            //     else if(i>=1){
+            //         fadeBtn.innerHTML="淡出";
+            //         fadeBtn.disable = false;
+            //         fadeBtn.addEventListener("click",fadeOut);
+            //     }
+            // }
+
+            // // fadeBtn.addEventListener("click",fadeOut);
+            // fadeBtn.onclick=fadeOut;
+            
+            //setInterval版本呢
+
+        //  window.onload = function(){
+		// 		var fadeObj = document.getElementById("fade-obj");
+		// 		var fadeBtn = document.getElementById("fade-btn");
+		// 		var i = 10;
+		// 		var timer = null;
+		// 	    fadeBtn.onclick = function(){   
+		// 		    if(fadeBtn.innerHTML === "淡出") {
+	    //                 timer = setInterval(fadeOut, 50);
+		// 			    this.disabled = true;
+		// 		    }else{
+		// 		    	timer = setInterval(fadeIn,50);
+		// 			    this.disabled = true;
+		// 		    }        
+				    
+		// 		}
+		// 		function fadeOut(){
+		// 		 	i = i - 0.1;
+		// 			fadeObj.style.opacity = i/10;
+		// 			// fadeObj.style.filter = "alpha(opacity = "+ i +")";
+		// 			if(i < 0){
+		// 				console.log(i);
+		// 				clearInterval(timer);
+		// 				fadeBtn.innerHTML = "淡入";
+		// 				fadeBtn.disabled = false;
+		// 			}				 	
+		// 		}
+		// 		function fadeIn(){
+		// 			i = i + 0.1;
+		// 			fadeObj.style.opacity = i/10;
+		// 			// fadeObj.style.filter = "alpha(opacity = "+ i +")";
+		// 			if(i > 10){
+		// 				clearInterval(timer);
+		// 				fadeBtn.innerHTML = "淡出";
+		// 				fadeBtn.disabled = false;
+		// 			}
+		// 		}
+		// 	}
+           
+
+           //个人练习的setInterval版本
+            window.onload=function(){
+                var fadeObj = document.getElementById("fade-obj");
+		 		var fadeBtn = document.getElementById("fade-btn");
+                var timer = null;
+                var i = 10;
+
+                //漏掉了按钮事件
+                fadeBtn.onclick = function(){
+                    
+                    if (fadeBtn.innerHTML==="淡出"){
+                    timer = setInterval(fadeOut,50);
+                    this.disabled = true;
+                }else{
+                    timer = setInterval(fadeIn,50);
+                    this.disabled = true;
+                }
+
+
+
+                }
+
+                
+            function fadeOut(){
+                i-=0.1;
+                fadeObj.style.opacity=i/10;
+                if(i<=0){
+                    console.log(i);
+                    
+                    clearInterval(timer);
+                    fadeBtn.innerHTML="淡入";
+                    fadeBtn.disabled=false;
+                }
+            }
+
+            function fadeIn(){
+                i+=0.1;
+                fadeObj.style.opacity=i/10;
+                if(i>=10){
+                    clearInterval(timer);
+                    fadeBtn.innerHTML="淡出";
+                    fadeBtn.disabled=false;
+                }
+            }
+
+        
+
+            }
+
+
+
+
+
+        </script>
+</body>
+</html>

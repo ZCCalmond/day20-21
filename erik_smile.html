@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sprite</title>
+    <style>
+        #div {
+            background: url(image/erik_ce204002.jpg) 0 0;
+            height: 480px;
+            width: 480px;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        var x = 0;
+        var timer = setInterval(function () {
+            var myDiv = document.getElementById("div");
+            x -= 480;
+            myDiv.style.backgroundPosition = "0 " + x + "px";
+        }, 150)
+    </script>
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="name" type="text">
+    <button id="submit-btn" accesskey="enter">Submit</button>
+
+    <script>
+        //按button时将输入行的内容在控制台输出
+        document.getElementById("submit-btn").onclick = function () {
+            console.log(document.getElementById("name").value);
+        }
+
+
+    //重要！
+        // document.onkeydown = function (e) {
+        //     var keyNum = window.event ? e.keyCode : e.which;
+        //     if (keyNum == 27) {
+        //         document.getElementById("name").value = " ";
+        //     }
+        //     if (keyNum == 13) {
+        //         console.log(document.getElementById("name").value);
+        //     }
+        // }
+        document.onkeydown = function(){
+            if (window.event.keycode == 27){
+                document.getElementById("name").value = " ";
+            }
+            else if(window.event.keycode == 13){
+                console.log(document.getElementById("name").value);
+            }
+            
+            
+        }
+
+    </script>
+</body>
+
+</html>
